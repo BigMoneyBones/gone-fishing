@@ -34,7 +34,7 @@ function totalValueGenerator() {
 
     }
 
-    return totalValue;
+    return totalValue.toFixed(2);
 
 }
 
@@ -48,7 +48,7 @@ function totalWeightGenerator() {
 
     }
 
-    return totalWeight;
+    return totalWeight.toFixed(2);
 
 }
 
@@ -65,7 +65,7 @@ function generateRandomFish() {
 
 function generateFishWeight() {
 
-    let weight = ((Math.random() * 10).toFixed(2));
+    let weight = ((Math.random() * 4).toFixed(2));
 
     return weight;
 
@@ -96,6 +96,8 @@ while (totalTime < 6) {
     let weight = generateFishWeight();
 
     let fish = generateRandomFish();
+
+        time++;
 
     // if (totalTime === 6) {
 
@@ -138,21 +140,7 @@ while (totalTime < 6) {
 
         if (Number(totalWeight) + Number(weight) > 10) {
 
-             console.log("This fish exceeds the 10 lb limit! This fish must be [r]eleased.")
-            
-            let choice3 = prompt("> ")
-        
-            if (choice3 === "r" || choice3 === "R") {
-
-                console.log("You throw the fish back!");
-
-            } else {
-
-                console.log("Input invalid, please try again.")
-
-            }
-
-
+             console.log("This fish exceeds the 10 lb limit! This fish must be [r]eleased.")  
 
         }
 
@@ -160,7 +148,7 @@ while (totalTime < 6) {
 
         let choice2 = prompt("> ")
         
-    if (choice2 === "K" || choice2 === "k") {
+    if (choice2 === "K" || choice2 === "k" && Number(totalWeight) <= 10) {
 
         fishCount++
 
@@ -174,7 +162,7 @@ while (totalTime < 6) {
 
         console.log("Your current fish collection consists of: ");
 
-        console.log(totalFish);
+        // console.log(totalFish);
       
     } else if (choice2 === "R" || choice2 === "r") {
 
@@ -188,13 +176,13 @@ while (totalTime < 6) {
 
         console.log("\n");
 
-        console.log("Press any key to cast again.");
+        // console.log("Press any key to cast again.");
 
         console.log("\n");
 
-        totalTime++;
+         totalTime++;
 
-        time++;
+        // time++;
 
         if (totalTime === 6) {
 
