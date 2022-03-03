@@ -2,9 +2,9 @@ const prompt = require('prompt-sync')({sigint: true});
 
 // **VARIABLES** //
 
-// let loopCount = 0
-
 let totalTime = 0;
+
+let time = generateTime();
 
 let fishCount = 0;
 
@@ -18,12 +18,11 @@ let fishCount = 0;
 
 function generateTime() { 
 
-    let time = Math.floor(Math.random() * 12);
+    let time = Math.floor(Math.random() * 13);
 
+    return time
 
 }
-
-
 
 function totalValueGenerator() {
 
@@ -66,7 +65,7 @@ function generateRandomFish() {
 
 function generateFishWeight() {
 
-    let weight = ((Math.random() * 7).toFixed(2));
+    let weight = ((Math.random() * 10).toFixed(2));
 
     return weight;
 
@@ -74,7 +73,7 @@ function generateFishWeight() {
 
 function generateValue() {
 
-    let value = ((Math.random() * 5).toFixed(2));
+    let value = ((Math.random() * 10).toFixed(2));
 
     return value;
 
@@ -83,9 +82,8 @@ function generateValue() {
 // **BEGINNING OF PROGRAM** //
 
     console.log("Hello! Welcome to Master Fisherman! Do you have what it takes to be the best?");
-    console.log("The current time is " + time + ":00.")
-    console.log("To get started cast your line with [C].")
-    
+
+    console.log("To get started press any key to cast your line!")
 
 while (totalTime < 6) {
 
@@ -99,47 +97,72 @@ while (totalTime < 6) {
 
     let fish = generateRandomFish();
 
-        // console.log("Your current number of caught fish is " + fishCount + " weighing " + totalWeight + " lbs and valued at $" + totalValue); 
+    // if (totalTime === 6) {
 
-        let initialCast = prompt("> ")
-    
-    var catchStatement = ("Congratulations! You Caught a " + fish + ", weighing " + weight + " lbs, and valued at $" + value);
+    //     console.log("Your final collection of fish is: ")
+
+    //     console.log(totalFish);
+
+    //     console.log("Your total fish weight is: " + totalWeight + ".");
+
+    //     console.log("Your total fish value is: " + totalValue + ".");
+
+    //     return
+    // }
+
+        console.log("The current time is " + time + ":00.")
+
+        console.log("Your current number of caught fish is " + fishCount + " weighing " + totalWeight + " lbs and valued at $" + totalValue); 
+        
+        if (Number(totalWeight) <= 10) {
+
+            console.log("continue");
+
+        }
+
+        console.log(prompt("> "))
 
     const newFish = {
 
     type: fish,   
     weight: weight,     //Random fish object generated with each loop.
-    value:  value
+    value: value
 
     };
 
-    if (totalWeight >= 10) {
-
-            return totalFish;
-
-    }
-
-    if (initialCast === "C") {
-
         console.log("You cast your line..");
-
-        console.log("\n");
 
         console.log("...");
 
-        console.log("\n");
+        console.log("Congratulations! You Caught a " + fish + ", weighing " + weight + " lbs, and valued at $" + value);
 
-        console.log(catchStatement);
+        if (Number(totalWeight) + Number(weight) > 10) {
 
-    }
+             console.log("This fish exceeds the 10 lb limit! This fish must be [r]eleased.")
+            
+            let choice3 = prompt("> ")
+        
+            if (choice3 === "r" || choice3 === "R") {
 
-        console.log("\n");
+                console.log("You throw the fish back!");
+
+            } else {
+
+                console.log("Input invalid, please try again.")
+
+            }
+
+
+
+        }
 
         console.log("Would you like to [K]eep this fish or [R]elease it?");
 
         let choice2 = prompt("> ")
+        
+    if (choice2 === "K" || choice2 === "k") {
 
-    if (choice2 = "K") {
+        fishCount++
 
         console.log("You have chosen to keep this fish! It has been added to your collection.")
 
@@ -149,26 +172,41 @@ while (totalTime < 6) {
 
         totalWeightArray.push(newFish.weight);
 
-        console.log("Your current number of caught fish is " + fishCount + " weighing " + totalWeight + " lbs and valued at $" + totalValue); 
-
         console.log("Your current fish collection consists of: ");
 
         console.log(totalFish);
-
-        fishCount++
       
-    } else if (choice2 = "R") {
+    } else if (choice2 === "R" || choice2 === "r") {
 
         console.log("You throw the fish back!");
 
+    } else {
+
+        console.log("Input invalid, please try again.")
+
     }
 
-        console.log("Cast again with [C]");
+        console.log("\n");
+
+        console.log("Press any key to cast again.");
 
         console.log("\n");
 
         totalTime++;
+
+        time++;
+
+        if (totalTime === 6) {
+
+            console.log("Your final collection of fish is: ")
     
-        // loopCount++;
+            console.log(totalFish);
+    
+            console.log("Your total fish weight is: " + totalWeight + "lbs.");
+    
+            console.log("Your total fish value is: $" + totalValue + ".");
+    
+            return
+        }
 
 }
