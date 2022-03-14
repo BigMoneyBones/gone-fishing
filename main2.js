@@ -99,19 +99,6 @@ while (totalTime < 6) {
 
         time++;
 
-    // if (totalTime === 6) {
-
-    //     console.log("Your final collection of fish is: ")
-
-    //     console.log(totalFish);
-
-    //     console.log("Your total fish weight is: " + totalWeight + ".");
-
-    //     console.log("Your total fish value is: " + totalValue + ".");
-
-    //     return
-    // }
-
         console.log("The current time is " + time + ":00.")
 
         console.log("Your current number of caught fish is " + fishCount + " weighing " + totalWeight + " lbs and valued at $" + totalValue); 
@@ -195,6 +182,17 @@ while (totalTime < 6) {
             console.log("Your total fish value is: $" + totalValue + ".");
     
             return
+            
         }
 
 }
+
+
+
+
+
+// // Continuous prompting until a valid input is entered.
+// let myPrompt = prompt("Enter K or R")
+// while(myPrompt !== "K" && myPrompt !== "R"){
+//    myPrompt = prompt("Invalid input, Enter K or R")
+// }
