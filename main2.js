@@ -81,6 +81,8 @@ function generateValue() {
 
 // **BEGINNING OF PROGRAM** //
 
+    console.log("\n");
+
     console.log("Hello! Welcome to Master Fisherman! Do you have what it takes to be the best?");
 
     console.log("To get started press any key to cast your line!")
@@ -135,6 +137,12 @@ while (totalTime < 6) {
 
         let choice2 = prompt("> ")
         
+    while (choice2 !== "k" && choice2 !== "K" && choice2 !== "r" && choice2 !== "R") {
+
+        choice2 = prompt("Invalid input. Would you like to [K]eep this fish or [R]elease it?");
+
+    }
+
     if (choice2 === "K" || choice2 === "k" && Number(totalWeight) <= 10) {
 
         fishCount++
@@ -149,7 +157,7 @@ while (totalTime < 6) {
 
         console.log("Your current fish collection consists of: ");
 
-        // console.log(totalFish);
+        console.log(totalFish);
       
     } else if (choice2 === "R" || choice2 === "r") {
 
