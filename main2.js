@@ -138,12 +138,12 @@ while (totalTime < 6) {
         let choice2 = prompt("> ")
         
     while (choice2 !== "k" && choice2 !== "K" && choice2 !== "r" && choice2 !== "R") {
-
+                                                                                                    //While statement continuously reprompts until valid input is entered.
         choice2 = prompt("Invalid input. Would you like to [K]eep this fish or [R]elease it?");
 
     }
 
-    if (choice2 === "K" || choice2 === "k" && Number(totalWeight) <= 10) {
+    if (choice2 === "K" || choice2 === "k" && Number(totalWeight)+ Number(weight) <= 10) {
 
         fishCount++
 
